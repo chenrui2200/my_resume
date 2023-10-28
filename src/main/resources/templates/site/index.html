@@ -1,6 +1,9 @@
 <!DOCTYPE HTML>
 
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<script th:src="@{/site/js/jquery.min.js}"></script>
+<script th:src="@{/timelines/js/timeline.js}"></script>
+<link rel=stylesheet th:href="@{/timelines/css/timeline.css}"/>
 <div th:replace="site/head::head(${commons.site_title()},${commons.google_site_verification()}, ${commons.baidu_site_verification()})"></div>
 
 <body>
@@ -18,7 +21,7 @@
     <section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
       <article role="pge-title-content">
         <header>
-          <h2><span>Luis</span> A Java Developer.</h2>
+          <h2><span>Chen Rui</span> A Smart Developer.</h2>
         </header>
         <p>maker of things for the web app, always focused on elegant simplicity, relentlessly learning by making mistakes.</p>
       </article>
@@ -73,6 +76,212 @@
       </ul>
     </section>
     <div class="clearfix"></div>
+    <div class="timeline animated">
+
+      <div class="timeline-row active">
+
+        <div class="timeline-time">
+          <small><th:block th:text="${currentTime}" ></th:block></small>
+        </div>
+
+        <div class="timeline-icon">
+          <div class="bg-primary">
+            <i class="fa fa-pencil"></i>
+          </div>
+        </div>
+
+        <div class="panel timeline-content">
+          <div class="panel-body">
+            <h2>
+              个人优势
+            </h2>
+
+            <p>
+              机器学习/强化学习<br/>
+              1，有强化学习开发经验<br/>
+
+              熟练掌握 DevOps 的服务集成发布需要的构建，更新和监控相关技能。全栈开发和熟悉智能体模型训练<br/>
+
+              内网安全系统<br/>
+              1 非云端监控条件下通过自研工具处理过六十万终端的高并发场景<br/>
+              2 高可用的微服务<br/>
+              3 熟悉 loadrunner  压测和性能优化<br/>
+
+              对外合作<br/>
+              1 熟练的英文听说读写沟通<br/>
+              2 全栈开发，跨系统集成<br/>
+              强化学习项目集成开发<br/>
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="timeline-row active">
+
+          <div class="timeline-time">
+            2023/04~2023/10
+          </div>
+
+        <div class="timeline-icon">
+          <div class="bg-warning">
+            <i class="fa fa-quote-right"></i>
+          </div>
+        </div>
+        <div class="panel timeline-content">
+          <div class="panel-body">
+            <h2>
+              杭州中国兵器 BZ  智元研院智能化 JDZHZN<br/>
+            </h2>
+            <p>
+
+              工作内容<br/>
+              团队职能： 负责智研院智能指挥系统的建设<br/>
+              参于方：第四范式<br/>
+              硬件环境： centosOS, ubuntu<br/>
+              软件环境：mysql, postgresql,  KB 知识图谱<br/>
+              通信协议：protocalbuffer, gRPC<br/>
+              仿真平台： 使用渊亭陆战仿真平台<br/>
+              1.  沟通甲方的软件设计指标和需求，及时调整功能开发侧重点<br/>
+              2. 利用强化模型去实现基于仿真的作战方案输出<br/>
+              3. 高复用性+高健壮性代码开发和镜像构建，持续集成<br/>
+              4. 强化学习+仿真平台输出局部战役的最优作战计划<br/>
+              5. bug  反馈修改 + 性能压力指标验证<br/>
+              6. 编写甲方认可的高质量专利文档，接口文档， 设计文档<br/>
+
+              航天五院低轨道作战<br/>
+              模仿+强化学习辅助学院仿真训练和作战计划生成<br/>
+              硬件环境：ubuntu<br/>
+              软件环境：mysql, postgresql<br/>
+              1. 前期采集仿真数据，利用模仿学习建模训练模型<br/>
+              2. 中期利用强化算子，和模仿学习模型做博弈训练装备智能体<br/>
+              3. 在装备智能体上层构建任务调度规则智能体。规则智能体通过行为树组织<br/>
+              4. 分层智能体充当蓝放，提供人机博弈功能帮助学员训练<br/>
+              5.定制化开发用户需要的交互功能<br/>
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="timeline-row active">
+
+        <div class="timeline-icon">
+          <div class="bg-warning">
+            <i class="fa fa-quote-right"></i>
+          </div>
+        </div>
+        <div class="panel timeline-content">
+          <div class="panel-body">
+            <h2>
+              Ariba Sourcing<br/>
+            </h2>
+            <p>
+
+              Guide Sourcnig Team:<br/>
+              Sourcing is a cloud-based solution that allow owner to publish their purchase intention, Integrated with supplier quotation that supplier can receive the invitation from Buyer, and via quotation to demonstrate competitiveness. owner can observe all quotations comparing which supplier offers a more reasonable price. By manually or automatically to save the transaction cost and time for the
+              customers<br/>
+              团队职能:<br/>
+              从传统 legacy  项目拆分出来的微服务使用k8s+docker  的技术栈<br/>
+              开发环境使用 jenkins pipline  做自动化质量检查<br/>
+              相关生产配置通过 Vault  配置<br/>
+              构建 docker  实例正常运行接口冒烟测试结束后，转移到k8s集群和并做路由映射<br/>
+              生产环境k8s弹性伸缩等未放权到外包团队<br/>
+              职责:<br/>
+              1 维护 Sap Ariba S4 系统，修改 bug + New Feature  开发<br/>
+              2 使用 Angular10和 Springboot  的新微服务做产品开发，<br/>
+              3 selenium  内核自动化 groovy  脚本开发<br/>
+              4 盲人辅助功能开发<br/>
+              5 security standards adaption, including CRSF protection, file fortification , expired data transaction purge etc<br/>
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="timeline-row active">
+
+        <div class="timeline-time">
+          2017/05~2020/03
+        </div>
+
+        <div class="timeline-icon">
+          <div class="bg-warning">
+            <i class="fa fa-quote-right"></i>
+          </div>
+        </div>
+        <div class="panel timeline-content">
+          <div class="panel-body">
+            <h2>
+              北京北信源- 基础服务平台<br/>
+            </h2>
+            <p>
+
+              负责底层公用组件设计实现和维护<br/>
+              硬件环境：<br/>
+              centosOS 6.8 ,susu ，国产麒麟，中标，神威<br/>
+              数据库:mysql,oracle, 国产达梦，金仓，神通等数据库<br/>
+              服务性质<br/>
+              分布式，thrift  跨语言协议，shell  脚本部署，内网平台<br/>
+              传统工作技能<br/>
+              1， 主要研究 fastdfs.elasticseartch<br/>
+              2.x版本，activemqd  等中间件的功能和各种部署模式，针对各项目要求提供部署设计和 shell  部署脚本交付以及改造中间件原始客户端。实现包括 fastdfs  的用户密码认证，ipv 6的网络适配。elasticsearch  的集群的高可用，activemq  的基于三方认证上网络互通高可用模式。<br/>
+              2 . 熟悉 redis， tomcat，mysql  等影响业务的中间件优化。<br/>
+              3 . 熟悉插件式开发，将功能做插件化配合安装脚本使用。<br/>
+              4 ，熟练使用 netty,mina  通讯框架, 修改过 log4j源码中 SocketAppender  推送日志功能，嵌入 mina  作为 nio  高性能通讯。熟悉 jgroups  的组播功能，使用 jgroups  做组播工具上层实现 raft  一致性算法，为产品开发者提供多节点部署依赖工具。<br/>
+              5， 通过研究 elk ，开发精简版和本地化的基于 es  存储，log4j推送日志和 es bulk  批处理的日志采集系统，并针对用户习惯开发基于 angular  的查询页面。<br/>
+              6 , 熟悉瀑布式开发的文档流程，能编写技术预研文档，方案评审文档，性能测试文档，部署和技术问题说明文档。<br/>
+              7 , 熟练通过使用 loadrunner  对核心业务压测，并针对压测不足组织代码走查和优化<br/>
+              8 , 能熟练使用 shell  脚本编写服务部署启动脚本<br/>
+              终端安全 DevOps ，适合移动办公需求的安全终端后台<br/>
+              1) 自动化校验 jenkins pipline（sonarqube + 程序 unit test + smoke test on docker instance)<br/>
+              2) 服务容器化 构建 images并 push  到自己的搭建 harbor<br/>
+              3) 通知目标服务器 利用 Pod  将联系紧密的服务创建在一起<br/>
+              5) kuboard  查看运行状态 和 管理k8s的 pod  弹性伸缩<br/>
+              6) service, ingress  做外网访问映射<br/>
+              7) prometheus + grafana  检测k8s的节点数和状态， cpu  使用率, cpu  限制<br/>
+              内存总量，内存使用率，内存使用限制<br/>
+              磁盘总数磁盘使用量，磁盘使用率等<br/>
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="timeline-row active">
+
+        <div class="timeline-time">
+          2013/10~2017/03
+        </div>
+
+        <div class="timeline-icon">
+          <div class="bg-warning">
+            <i class="fa fa-quote-right"></i>
+          </div>
+        </div>
+        <div class="panel timeline-content">
+          <div class="panel-body">
+            <h2>
+              外派平台接入<br/>
+            </h2>
+            <p>
+
+              部署:阿里云 + docker<br/>
+              数据库:pgsql<br/>
+              分布式:zookeeper dubbo<br/>
+              跑批: elasticjob<br/>
+              天财商龙门店点餐机后端开发<br/>
+              1，服务个体商户和连锁型餐饮企业的点餐机和自主点餐屏<br/>
+              2，提供接入美团和饿了么的外卖服务<br/>
+              3，提供收银对账报表服务<br/>
+              4，为有需求的商户打通供应链渠道和店铺供应链需求分析数据，为有需求的商户开通集团 crm  会员<br/>
+              5，云服务动态扩容k8s 扩容 pod消费服务<br/>
+            </p>
+          </div>
+        </div>
+      </div>
+
   </div>
 </main>
 

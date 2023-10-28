@@ -21,7 +21,10 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 
@@ -29,7 +32,13 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URLEncoder;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -77,6 +86,37 @@ public class HomeController extends BaseController{
                     int limit
     ){
         return this.blogIndex(request, 1, limit);
+    }
+
+    @ApiOperation("logo jpg")
+    @GetMapping(value = {"/logoJpg"})
+    public void logoJpg(
+            HttpServletRequest request,
+            HttpServletResponse response
+    ) throws IOException {
+        // 读取图片文件
+        ClassPathResource resource = new ClassPathResource("static/site/images/logo.jpg");
+
+        // 设置响应的内容类型为图片类型
+        response.setContentType(MediaType.IMAGE_JPEG_VALUE);
+        // 将图片数据写入响应流
+        StreamUtils.copy(resource.getInputStream(), response.getOutputStream());
+    }
+
+
+    @ApiOperation("QR code")
+    @GetMapping(value = {"/qrCode"})
+    public void qrCode(
+            HttpServletRequest request,
+            HttpServletResponse response
+    ) throws IOException {
+        // 读取图片文件
+        ClassPathResource resource = new ClassPathResource("static/site/images/qrCode.jpg");
+
+        // 设置响应的内容类型为图片类型
+        response.setContentType(MediaType.IMAGE_JPEG_VALUE);
+        // 将图片数据写入响应流
+        StreamUtils.copy(resource.getInputStream(), response.getOutputStream());
     }
 
     @ApiOperation("blog首页-分页")
@@ -446,6 +486,8 @@ public class HomeController extends BaseController{
         PageInfo<ContentDomain> articles = contentService.getArticlesByCond(contentCond, page, limit);
         request.setAttribute("archives", articles);
         request.setAttribute("active", "work");
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd, 24HH:mm:ss");
+        request.setAttribute("currentTime", df.format(new Date()));
         return "site/index";
     }
 

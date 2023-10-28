@@ -49,4 +49,12 @@ public class UserServiceImpl implements UserService {
     }
 
 
+    public static void main(String[] args) {
+        String username = "admin";
+        String password = "xxxx";
+        String pwd = TaleUtils.MD5encode(username + password);
+        System.out.println("pwd:" + pwd);
+    }
+
+
 }
